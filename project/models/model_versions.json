@@ -1,0 +1,24 @@
+{
+  "versions": [
+    {
+      "version": "v1",
+      "model_name": "RandomForestClassifier",
+      "task_type": "classification",
+      "score": 1.0,
+      "timestamp": "2026-03-06T22:02:12.500843",
+      "best_params": {
+        "max_depth": null,
+        "n_estimators": 50
+      }
+    },
+    {
+      "version": "v2",
+      "model_name": "LogisticRegression",
+      "task_type": "classification",
+      "score": 0.9733333333333334,
+      "timestamp": "2026-03-06T22:03:54.886889"
+    }
+  ],
+  "latest_version": "v2",
+  "production_model": "v2"
+}

@@ -1,0 +1,7 @@
+{
+  "model_name": "LogisticRegression",
+  "task_type": "classification",
+  "score": 0.9733333333333334,
+  "version": "v2",
+  "timestamp": "2026-03-06T22:03:54.886889"
+}
