@@ -1,482 +1,263 @@
-# 🤖 AutoML Platform - Complete Machine Learning Operations Dashboard
+# 🤖 ML.AGENT - Autonomous AI Engineer & Production AutoML Platform
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.135.1-green.svg)](https://fastapi.tiangolo.com)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.135.1-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F79A3E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-000000?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.ai)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-A **production-ready AutoML platform** with comprehensive web dashboard for automated machine learning operations. Built for hackathons, research, and production deployment.
+A production-ready **Autonomous AI Coding & ML Agent** combined with an interactive **AutoML Web Operations Dashboard**. Built for automated machine learning workflows, self-healing code generation, model tuning, and web-based model deployment.
 
-## 🌟 Features
+---
 
-### 🔥 Core AutoML Features
-- **Automatic Model Selection** - Compares RandomForest, LogisticRegression, LinearRegression
-- **Hyperparameter Optimization** - GridSearchCV with cross-validation  
-- **Task Detection** - Auto-detects classification vs regression
-- **Model Versioning** - Complete model lifecycle management
-- **Production Deployment** - REST API for real-time predictions
+## 📑 Table of Contents
 
-### 📊 Professional Dashboard
-- **Real-time Monitoring** - Live platform statistics
-- **Model Performance** - Compare all trained models
-- **Prediction Testing** - Interactive prediction interface
-- **Dataset Analytics** - Comprehensive data insights  
-- **Feature Importance** - Model explainability
-- **Prediction History** - Complete prediction logs
+- [🌟 Key Highlights](#-key-highlights)
+- [🏗️ System Architecture](#️-system-architecture)
+- [🧠 Autonomous AI Agent System](#-autonomous-ai-agent-system)
+- [📊 Production AutoML Platform & Dashboard](#-production-automl-platform--dashboard)
+- [🚀 Quick Start Guide](#-quick-start-guide)
+- [📁 Project Structure](#-project-structure)
+- [📡 REST API Documentation](#-rest-api-documentation)
+- [💻 CLI & Agent Usage](#-cli--agent-usage)
+- [🛠️ Configuration & Environment](#️-configuration--environment)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
-### 🚀 Enterprise Features
-- **RESTful API** - 15+ endpoints for all operations
-- **Batch Predictions** - Handle multiple predictions
-- **Model Registry** - Version control for models
-- **Analytics Engine** - Track all platform activity
-- **Professional UI** - Modern, responsive dashboard
-- **Production Ready** - Scalable FastAPI backend
+---
+
+## 🌟 Key Highlights
+
+### 🧠 Autonomous Multi-LLM Agent Architecture
+- **Self-Healing Code Loop**: Autonomous Planner → Coder → Sandbox Executor → Self-Debugging loop.
+- **Local Ollama LLMs**: Powered by `Llama3 (8B)` for architecture planning, `DeepSeek-Coder (6.7B)` for precise code generation, and `Phi-3` for error diagnostics.
+- **Sandboxed Execution Engine**: Automatically tests generated Python code non-interactively with runtime error capture and multi-iteration auto-repair.
+
+### 🔥 Comprehensive AutoML Platform
+- **Automated Model Training**: Trains and compares multiple algorithms (`RandomForest`, `LogisticRegression`, `LinearRegression`).
+- **Hyperparameter Tuning**: Dynamic optimization via `GridSearchCV` with cross-validation.
+- **Auto Task Detection**: Intelligent task classification (Classification vs. Regression).
+- **Model Lifecycle & Registry**: Version-controlled model storage and active deployment tracking.
+
+### 📊 Modern Web Dashboard
+- **Interactive UI**: Real-time stats, prediction testing playground, dataset analytics, and model performance comparisons.
+- **Explainable AI (XAI)**: Feature importance breakdown and performance metric charts.
+- **Prediction Analytics**: Comprehensive history logs and batch inference capabilities.
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│   Web Dashboard │────▶│   FastAPI Server │────▶│   AutoML Engine │
-│   (React-like)  │     │   (REST API)     │     │  (Scikit-learn) │
-└─────────────────┘     └──────────────────┘     └─────────────────┘
-                                 │                          │
-                        ┌────────▼────────┐        ┌───────▼────────┐
-                        │ Model Registry  │        │ Analytics DB   │
-                        │ (Versioning)    │        │ (Predictions)  │
-                        └─────────────────┘        └────────────────┘
+                                  ┌──────────────────────────────────────────────┐
+                                  │           Autonomous AI Agent Loop           │
+                                  │   (Planner -> Coder -> Sandbox -> Fix)       │
+                                  └──────────────────────┬───────────────────────┘
+                                                         │
+                                                         ▼
+┌────────────────────────────────┐       ┌────────────────────────────────┐       ┌────────────────────────────────┐
+│         Web Dashboard          │       │         FastAPI Engine         │       │          AutoML Core           │
+│   (HTML5 / CSS3 / Vanilla JS)  │ ◄───► │      (REST API Server)         │ ◄───► │   (Scikit-Learn / Pandas)     │
+└────────────────────────────────┘       └────────────────────────────────┘       └────────────────────────────────┘
+                                                         │                                        │
+                                                         ▼                                        ▼
+                                         ┌────────────────────────────────┐       ┌────────────────────────────────┐
+                                         │         Model Registry         │       │       Prediction Analytics     │
+                                         │       (best_model.pkl)         │       │         (metrics.json)         │
+                                         └────────────────────────────────┘       └────────────────────────────────┘
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🧠 Autonomous AI Agent System
 
-### 1. Clone Repository
+The project features a standalone AI Engineer agent pipeline in the root directory that writes, tests, and fixes machine learning and general Python scripts independently:
+
+| Agent Module | LLM Model | Role / Function |
+|--------------|-----------|-----------------|
+| **Planner** | `llama3:8b` | Analyzes task requirements and designs execution plans adhering to sandboxing constraints. |
+| **Coder** | `deepseek-coder:6.7b` | Synthesizes executable single-file Python programs with sample data. |
+| **Debugger** | `phi3` | Diagnoses runtime tracebacks/errors and outputs fixed code. |
+| **Executor** | `executor.py` | Runs code in a isolated subprocess, evaluates return codes, and feeds failures back to Debugger. |
+
+### Running the AI Agent Pipeline
+
 ```bash
-git clone https://github.com/yourusername/automl-platform.git
-cd automl-platform
+# General AI Coding Agent
+python main.py
+
+# Machine Learning Specialized Agent Pipeline
+python ml_main.py
 ```
 
-### 2. Install Dependencies
+---
+
+## 📊 Production AutoML Platform & Dashboard
+
+The platform includes a complete FastAPI application with an integrated dashboard in the `project/` directory.
+
+### Core Capabilities
+- **Dataset Ingestion**: Upload custom CSV datasets or test on standard datasets.
+- **Automated Training**: Trigger multi-model cross-validation and hyperparameter optimization in 1 click.
+- **Real-Time Predictions**: Test single inputs or batch payloads via UI form or API.
+- **Model Performance Overview**: Detailed metrics (Accuracy, F1, R², MSE) compared visually.
+
+---
+
+## 🚀 Quick Start Guide
+
+### 1. Prerequisites
+- **Python**: Version `3.8+` (Python 3.9-3.11 recommended)
+- **Ollama**: (Optional for LLM Agent loop) [Download Ollama](https://ollama.ai)
+
+### 2. Clone the Repository
 ```bash
+git clone https://github.com/0712-asif/ML.AGENT.git
+cd ML.AGENT
+```
+
+### 3. Setup Virtual Environment & Dependencies
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# Linux/macOS
+python3 -m venv venv
+source venv/bin/activate
+
+# Install requirements
 pip install -r requirements.txt
 ```
 
-### 3. Start Platform
+### 4. Start the AutoML Dashboard Server
 ```bash
 cd project
 uvicorn api_server:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-### 4. Access Dashboard
-Open browser to: **http://localhost:8000**
-
-**That's it!** 🎉 Your AutoML platform is running!
-
----
-
-## 📋 Requirements
-
-### Python Dependencies
-- **Python 3.8+** 
-- **FastAPI 0.135.1** - Modern web framework
-- **Uvicorn 0.41.0** - ASGI server
-- **Pandas 2.1.3** - Data analysis
-- **Scikit-learn** - Machine learning
-- **Joblib** - Model persistence
-- **NumPy** - Numerical computing
-
-### System Requirements
-- **RAM**: 4GB minimum, 8GB recommended
-- **Storage**: 1GB for models and data
-- **OS**: Windows, Linux, macOS
-- **Browser**: Chrome, Firefox, Safari, Edge
-
----
-
-## 🧪 Usage Guide
-
-### Dataset Upload & Training
-
-#### 1. Upload Your Dataset
-```bash
-curl -X POST "http://localhost:8000/upload-dataset" \
-  -F "file=@your_dataset.csv"
-```
-
-#### 2. Train Models Automatically
-```bash
-curl -X POST "http://localhost:8000/train-uploaded-dataset"
-```
-**Returns**: Best model with hyperparameter optimization!
-
-#### 3. Make Predictions
-```bash
-curl -X POST "http://localhost:8000/predict" \
-  -H "Content-Type: application/json" \
-  -d '{"features": [5.1, 3.5, 1.4, 0.2]}'
-```
-
-### Dashboard Usage
-
-#### Platform Overview
-- **Production Model**: Current active model
-- **Total Models**: All trained versions
-- **Datasets**: Available data
-- **Predictions**: Total predictions made
-
-#### Model Performance
-- Compare accuracy/R² across model versions
-- View hyperparameter optimization results
-- Track model improvement over time
-
-#### Prediction Testing
-Example iris flower classification:
-```
-Sepal Length: 5.1
-Sepal Width: 3.5
-Petal Length: 1.4
-Petal Width: 0.2
-```
-**Result**: Setosa (Class 0)
-
-#### Dataset Insights
-- Row/column counts
-- Missing value analysis  
-- Column information
-- Task type detection
-
----
-
-## 📡 API Reference
-
-### Core Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/` | Dashboard home page |
-| `POST` | `/upload-dataset` | Upload CSV dataset |
-| `POST` | `/train-uploaded-dataset` | Auto-train with optimization |
-| `POST` | `/predict` | Single prediction |
-| `POST` | `/batch-predict` | Multiple predictions |
-| `GET` | `/model-info` | Current model details |
-
-### Analytics Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/platform-summary` | Overall platform stats |
-| `GET` | `/model-performance` | Compare all models |
-| `GET` | `/prediction-stats` | Prediction analytics |
-| `GET` | `/feature-importance` | Model explainability |
-| `GET` | `/dataset-info` | Dataset analysis |
-| `GET` | `/model-versions` | All model versions |
-
-### Example API Calls
-
-#### Upload Dataset
-```python
-import requests
-
-with open('iris.csv', 'rb') as f:
-    response = requests.post(
-        'http://localhost:8000/upload-dataset',
-        files={'file': f}
-    )
-print(response.json())
-```
-
-#### Train Models
-```python
-response = requests.post('http://localhost:8000/train-uploaded-dataset')
-result = response.json()
-print(f"Best model: {result['best_model']}")
-print(f"Score: {result['score']}")
-```
-
-#### Make Prediction
-```python
-prediction_data = {
-    "features": [6.3, 3.3, 6.0, 2.5]  # Iris Virginica
-}
-response = requests.post(
-    'http://localhost:8000/predict',
-    json=prediction_data
-)
-print(f"Prediction: {response.json()['prediction']}")
-```
-
----
-
-## 🎯 Implementation Examples
-
-### Integration with Your System
-
-#### Option 1: Microservice Architecture
-```python
-import requests
-
-class AutoMLClient:
-    def __init__(self, base_url="http://localhost:8000"):
-        self.base_url = base_url
-    
-    def train_model(self, csv_file_path):
-        with open(csv_file_path, 'rb') as f:
-            # Upload dataset
-            requests.post(f"{self.base_url}/upload-dataset", 
-                         files={'file': f})
-        
-        # Train model
-        result = requests.post(f"{self.base_url}/train-uploaded-dataset")
-        return result.json()
-    
-    def predict(self, features):
-        response = requests.post(f"{self.base_url}/predict",
-                               json={"features": features})
-        return response.json()["prediction"]
-
-# Usage
-automl = AutoMLClient()
-automl.train_model("my_data.csv")
-prediction = automl.predict([5.1, 3.5, 1.4, 0.2])
-```
-
-#### Option 2: Docker Deployment
-```dockerfile
-FROM python:3.9-slim
-
-COPY . /app
-WORKDIR /app
-
-RUN pip install -r requirements.txt
-
-EXPOSE 8000
-CMD ["uvicorn", "project.api_server:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-#### Option 3: Cloud Deployment
-
-**AWS/GCP/Azure**:
-```bash
-# Deploy to cloud platform
-docker build -t automl-platform .
-docker run -p 8000:8000 automl-platform
-```
+### 5. Open Web Dashboard
+Navigate to **`http://localhost:8000`** in your browser.
 
 ---
 
 ## 📁 Project Structure
 
 ```
-automl-platform/
-├── project/
-│   ├── api_server.py          # Main FastAPI application
-│   ├── dashboard/             # Web dashboard files
-│   │   ├── index.html         # Dashboard interface
-│   │   ├── style.css          # Professional styling
-│   │   └── script.js          # Interactive functionality
-│   ├── models/                # Trained models storage
-│   ├── datasets/              # Uploaded datasets
-│   ├── logs/                  # Prediction logs
-│   └── runs/                  # Training run results
-├── requirements.txt           # Python dependencies
-├── README.md                 # This file
-└── .gitignore               # Git ignore rules
+ML.AGENT/
+├── agents.py                 # Multi-LLM agents (Planner, Coder, Debugger)
+├── ml_agent.py              # ML-specific agents & prompt templates
+├── executor.py              # Code sandbox executor & debug loop runner
+├── main.py                  # CLI runner for general code generation
+├── ml_main.py               # CLI runner for ML pipeline generation
+├── run_pipeline.py          # Quick execution helper
+├── verify_setup.py          # Setup verification script
+├── requirements.txt         # Project dependencies
+├── Dockerfile               # Production container definition
+├── DEPLOYMENT.md            # Cloud deployment guide
+├── GIT_SETUP.md             # Git repository setup notes
+├── LICENSE                  # MIT License
+├── README.md                # Project documentation
+│
+└── project/                 # AutoML Web Application
+    ├── api_server.py        # FastAPI server & REST API routes
+    ├── ml_app.py            # AutoML training & tuning logic
+    ├── best_model.pkl       # Serialized active production model
+    ├── metrics.json         # Current model evaluation metrics
+    ├── dashboard/           # Frontend Web Interface
+    │   ├── index.html       # Web UI HTML markup
+    │   ├── style.css        # Modern glassmorphism & responsive CSS
+    │   └── script.js        # Interactive dashboard logic
+    ├── datasets/            # Stored dataset uploads
+    ├── models/              # Saved model versions
+    └── logs/                # Prediction history logs
 ```
 
 ---
 
-## 🔧 Advanced Configuration
+## 📡 REST API Documentation
 
-### Environment Variables
+The FastAPI application serves a comprehensive REST API. Interactive Swagger documentation is available at `http://localhost:8000/docs`.
+
+### Core API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/` | Serves the web dashboard interface |
+| `POST` | `/upload-dataset` | Uploads a CSV dataset for training |
+| `POST` | `/train-uploaded-dataset` | Runs AutoML model comparison & tuning |
+| `POST` | `/predict` | Evaluates a single prediction vector |
+| `POST` | `/batch-predict` | Evaluates multiple prediction vectors |
+| `GET` | `/model-info` | Returns information about active deployed model |
+| `GET` | `/platform-summary` | Returns overall platform operational metrics |
+| `GET` | `/model-performance` | Compares scores across trained models |
+| `GET` | `/feature-importance` | Returns feature importance / weights |
+| `GET` | `/dataset-info` | Metadata and columns of current dataset |
+
+### Example Request (Single Prediction)
+
+```bash
+curl -X POST "http://localhost:8000/predict" \
+  -H "Content-Type: application/json" \
+  -d '{"features": [5.1, 3.5, 1.4, 0.2]}'
+```
+
+---
+
+## 💻 CLI & Agent Usage
+
+You can run setup checks and execute autonomous coding tasks directly from the command line:
+
+### Verify Environment & Ollama LLMs
+```bash
+python verify_setup.py
+```
+
+### Run Autonomous Machine Learning Agent
+```bash
+python ml_main.py
+```
+
+### Docker Deployment
+```bash
+# Build Docker image
+docker build -t ml-agent .
+
+# Run container
+docker run -p 8000:8000 ml-agent
+```
+
+---
+
+## 🛠️ Configuration & Environment
+
+You can configure the host and port settings using environment variables:
+
 ```bash
 export AUTOML_HOST=0.0.0.0
 export AUTOML_PORT=8000
 export AUTOML_RELOAD=true
-export AUTOML_MODELS_DIR=/path/to/models
 ```
-
-### Custom Model Parameters
-```python
-# Modify api_server.py for custom hyperparameters
-rf_param_grid = {
-    "n_estimators": [100, 200, 500],
-    "max_depth": [10, 20, None],
-    "min_samples_split": [2, 5, 10]
-}
-```
-
-### Production Settings
-```python
-# For production deployment
-uvicorn api_server:app --host 0.0.0.0 --port 8000 --workers 4
-```
-
----
-
-## 🏆 Use Cases
-
-### 1. **Hackathon Projects**
-- Rapid ML model development
-- Professional demo interface
-- Complete end-to-end solution
-
-### 2. **Research & Education**
-- Compare multiple algorithms
-- Understand model performance
-- Learn ML best practices
-
-### 3. **Business Applications**
-- Customer segmentation
-- Sales prediction
-- Risk assessment
-- Anomaly detection
-
-### 4. **Production Systems**
-- Microservice architecture
-- API integration
-- Scalable deployment
-
----
-
-## 🚀 Deployment Options
-
-### Local Development
-```bash
-uvicorn project.api_server:app --reload
-```
-
-### Production Server
-```bash
-uvicorn project.api_server:app --host 0.0.0.0 --port 8000 --workers 4
-```
-
-### Docker Container
-```bash
-docker build -t automl-platform .
-docker run -p 8000:8000 automl-platform
-```
-
-### Cloud Platforms
-- **Heroku**: `git push heroku main`
-- **AWS**: Deploy with ECS/Lambda
-- **GCP**: Cloud Run deployment
-- **Azure**: Container Instances
-
----
-
-## 🎮 Demo Data
-
-### Iris Dataset (Built-in)
-```python
-# The platform includes iris dataset for testing
-# Features: sepal_length, sepal_width, petal_length, petal_width
-# Classes: Setosa(0), Versicolor(1), Virginica(1)
-
-# Test values:
-# Setosa: [5.1, 3.5, 1.4, 0.2] → 0
-# Versicolor: [6.4, 3.2, 4.5, 1.5] → 1  
-# Virginica: [6.3, 3.3, 6.0, 2.5] → 2
-```
-
-### Custom Dataset Format
-```csv
-feature1,feature2,feature3,target
-1.2,3.4,5.6,0
-2.3,4.5,6.7,1
-3.4,5.6,7.8,0
-```
-**Last column = target variable**
-
----
-
-## 🛠️ Troubleshooting
-
-### Common Issues
-
-#### Server Won't Start
-```bash
-# Check port availability
-netstat -an | findstr 8000
-
-# Use different port
-uvicorn project.api_server:app --port 8001
-```
-
-#### CSS/JS Not Loading
-```bash
-# Verify static files
-ls project/dashboard/
-# Should show: index.html, style.css, script.js
-```
-
-#### Model Training Fails
-```bash
-# Check dataset format
-curl http://localhost:8000/dataset-info
-# Verify CSV has target column
-```
-
-#### Prediction Errors
-```bash
-# Verify feature count
-curl -X POST http://localhost:8000/predict \
-  -H "Content-Type: application/json" \
-  -d '{"features": [1,2,3,4]}'  # Must match training features
-```
-
----
-
-## 📈 Performance & Scaling
-
-### Optimization Tips
-- **Dataset Size**: Handles up to 1M+ rows efficiently
-- **Model Training**: Uses parallel processing (`n_jobs=-1`)
-- **Memory Usage**: Optimized for production workloads
-- **Response Time**: Sub-second prediction latency
-
-### Scaling Options
-- **Horizontal**: Multiple FastAPI instances
-- **Vertical**: Increase CPU/RAM resources  
-- **Caching**: Redis for model caching
-- **Database**: PostgreSQL for production logs
 
 ---
 
 ## 🤝 Contributing
 
-1. **Fork** the repository
-2. **Create** feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to branch (`git push origin feature/amazing-feature`)
-5. **Open** Pull Request
+Contributions, issues, and feature requests are welcome!
+1. Fork the Project (`https://github.com/0712-asif/ML.AGENT/fork`)
+2. Create your Feature Branch (`git checkout -b feature/AwesomeFeature`)
+3. Commit your Changes (`git commit -m 'Add some AwesomeFeature'`)
+4. Push to the Branch (`git push origin feature/AwesomeFeature`)
+5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
 
 ---
 
-## 🏆 Acknowledgments
-
-- **FastAPI** - Modern web framework
-- **Scikit-learn** - Machine learning library
-- **Uvicorn** - Lightning-fast ASGI server
-- **Pandas** - Data manipulation and analysis
-
----
-
-## 📞 Support
-
-- 📧 **Email**: your.email@domain.com
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/automl-platform/issues)
-- 📖 **Documentation**: [Wiki](https://github.com/yourusername/automl-platform/wiki)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/automl-platform/discussions)
-
----
-
-**⭐ Star this repo if it helped you build amazing ML applications!**
-
-**🚀 Ready to revolutionize your machine learning workflow? Let's build something incredible together!**
+<p align="center">
+  <b>Developed by <a href="https://github.com/0712-asif">0712-asif</a></b>
+</p>
